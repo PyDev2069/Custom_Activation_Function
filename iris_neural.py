@@ -29,7 +29,7 @@ model.compile(optimizer='adam',
               metrics=['accuracy'])
 model.save('api.h5')
 history = model.fit(X_train, y_train, epochs=50, batch_size=8, verbose=0)
-final_train_accuracy = history.history['accuracy'][-1]  # Access the last epoch's accuracy
+final_train_accuracy = history.history['accuracy'][-1]  
 print(f"Final Training Accuracy: {final_train_accuracy * 100:.2f}%")
 test_loss, test_acc = model.evaluate(X_test, y_test, verbose=0)  
 print(f"Final Test Accuracy on the whole test set: {test_acc * 100:.2f}%")
@@ -48,7 +48,7 @@ for layer in model.layers:
 import matplotlib.pyplot as plt
 history = model.fit(X_train, y_train, epochs=50, batch_size=8, verbose=0, validation_split=0.2)
 
-# Plotting loss function vs. epochs
+
 plt.plot(history.history['loss'], label='Train Loss')
 plt.plot(history.history['val_loss'], label='Test Loss')
 plt.title('Loss vs Epochs')
